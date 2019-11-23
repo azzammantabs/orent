@@ -1,4 +1,4 @@
-package com.example.orent.ui.send;
+package com.example.orent.ui.profile;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
