@@ -10,8 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.orent.MainActivity;
-import com.example.orent.NavDrawerActivity;
 import com.example.orent.R;
 
 public class LoginActivity extends AppCompatActivity {

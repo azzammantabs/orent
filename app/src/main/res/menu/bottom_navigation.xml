@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:title="@string/menu_home"
+        android:icon="@drawable/ic_home"/>
+    <item
+        android:id="@+id/nav_peminjaman"
+        android:title="@string/menu_peminjaman"
+        android:icon="@drawable/ic_peminjaman"/>
+    <item
+        android:id="@+id/nav_history"
+        android:title="@string/menu_history"
+        android:icon="@drawable/ic_history"/>
+    <item
+        android:id="@+id/nav_akun"
+        android:title="@string/menu_akun"
+        android:icon="@drawable/ic_akun"/>
+
+</menu>
