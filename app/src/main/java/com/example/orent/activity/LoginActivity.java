@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         //inisialisasi
         tv_register = findViewById(R.id.tv_regist);
         btn_login = findViewById(R.id.btn_login);
-        et_username = findViewById(R.id.et_username);
+        et_username = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
 
         //on click listener
