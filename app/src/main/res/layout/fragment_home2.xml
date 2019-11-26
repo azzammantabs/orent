@@ -8,11 +8,48 @@
     tools:context=".fragment.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="home"
-        android:gravity="center"/>
+        android:paddingLeft="19dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sewa motor"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="34dp"
+            android:textColor="@android:color/black"/>
+        <Button
+            android:id="@+id/btn_sewamotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/motor"
+            android:shadowColor="@color/colorPrimary"
+            android:elevation="4dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="sewa mobil"
+            android:layout_marginTop="39dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+        <Button
+            android:id="@+id/btn_sewamobil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/mobil"
+            android:shadowColor="@color/colorPrimary"
+            android:elevation="4dp"/>
+
+    </LinearLayout>
+
 
 </FrameLayout>

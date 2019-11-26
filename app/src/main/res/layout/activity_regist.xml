@@ -17,9 +17,8 @@
             android:id="@+id/email_regist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="email"
+            android:hint="Email"
             android:inputType="textEmailAddress"
-            android:textColor="@color/colorPrimaryDark"
             android:textSize="14sp" />
 
     </android.support.design.widget.TextInputLayout>
@@ -31,9 +30,8 @@
             android:id="@+id/nama_regist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="nama lengkap"
+            android:hint="Nama Lengkap"
             android:inputType="text"
-            android:textColor="@color/colorPrimaryDark"
             android:textSize="14sp" />
 
     </android.support.design.widget.TextInputLayout>
@@ -45,9 +43,8 @@
             android:id="@+id/no_regist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="no hp"
+            android:hint="No Hp"
             android:inputType="number"
-            android:textColor="@color/colorPrimaryDark"
             android:textSize="14sp" />
 
     </android.support.design.widget.TextInputLayout>
@@ -60,9 +57,8 @@
             android:id="@+id/password_regist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="password"
+            android:hint="Password"
             android:inputType="textPassword"
-            android:textColor="@color/colorPrimaryDark"
             android:textSize="14sp" />
 
     </android.support.design.widget.TextInputLayout>
@@ -74,13 +70,35 @@
         android:background="@color/colorPrimary"
         android:text="DAFTAR"
         android:textColor="@android:color/white" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
-        android:text="Lupa Kata Sandi" />
+        android:text="Dengan menekan daftar, saya menyetujui" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Syarat dan Ketentuan"
+            android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=", serta "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kebijakan Privasi"
+            android:textColor="@color/colorPrimary"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

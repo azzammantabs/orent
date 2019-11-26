@@ -19,7 +19,8 @@
             android:paddingRight="70dp"
             android:drawableLeft="@drawable/ic_search"
             android:hint="  Cari kendaraanmu disini"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:focusable="false"/>
 
     </android.support.v7.widget.Toolbar>
 
