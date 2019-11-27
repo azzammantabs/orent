@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.GridLayout;
 
 import com.example.orent.R;
 import com.example.orent.adapter.MobilAdapter;
@@ -16,6 +17,8 @@ public class MobilActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
     RecyclerView.LayoutManager mLayoutManager;
     RecyclerView.Adapter mAdapter;
+    GridLayout gridLayout;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +31,6 @@ public class MobilActivity extends AppCompatActivity {
         //inisialisasi
         mRecyclerView = findViewById(R.id.rc_mobil);
         mRecyclerView.setHasFixedSize(true);
-
         mLayoutManager  = new GridLayoutManager(MobilActivity.this,2);
         mRecyclerView.setLayoutManager(mLayoutManager);
 

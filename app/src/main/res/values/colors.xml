@@ -5,4 +5,6 @@
     <color name="colorAccent">#FFB800</color>
     <color name="colorToolbar">#F1F1F1</color>
     <color name="colorTextDefault">#070606</color>
+    <color name="orent">#FF5C00</color>
+    <color name="line">#848484</color>
 </resources>

@@ -95,8 +95,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="XXX-XX-XXXXXXXX"
-                android:textSize="34sp"
+                android:text="878-78-78787878"
+                android:textSize="30sp"
                 android:textColor="@android:color/black"
                 android:layout_marginTop="15dp"/>
 

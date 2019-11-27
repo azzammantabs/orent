@@ -25,6 +25,16 @@
             android:parentActivityName=".activity.HomeActivity"/>
         <activity android:name=".activity.MotorActivity"
             android:parentActivityName=".activity.HomeActivity"/>
+        <activity android:name=".activity.DetailActivity"
+            android:parentActivityName=".activity.MobilActivity"/>
+        <activity android:name=".activity.RincianActivity"
+            android:parentActivityName=".activity.DetailActivity"/>
+        <activity android:name=".activity.PembayaranActivity"
+            android:parentActivityName=".activity.RincianActivity"/>
+        <activity android:name=".activity.PembayaranDetailActivity"
+            android:parentActivityName=".activity.PembayaranActivity"/>
+        <activity android:name=".activity.TransferActivity"
+            android:parentActivityName=".activity.PembayaranDetailActivity"/>
     </application>
 
 </manifest>

@@ -1,13 +1,18 @@
 package com.example.orent.adapter;
 
+import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.orent.R;
+import com.example.orent.activity.DetailActivity;
 import com.example.orent.model.Mobil;
 
 import java.util.ArrayList;
@@ -67,11 +72,25 @@ public class MobilAdapter extends RecyclerView.Adapter<MobilAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(final ViewHolder viewHolder, int i) {
         Mobil nature = mItems.get(i);
         viewHolder.tvspecies.setText(nature.getName());
         viewHolder.tvspecies2.setText(nature.getmName2());
         viewHolder.imgThumbnail.setImageResource(nature.getThumbnail());
+
+        viewHolder.cv_mobil.setOnClickListener(new View.OnClickListener() {
+            final int i = viewHolder.getAdapterPosition();
+            @Override
+            public void onClick(View view) {
+                if (i == 0) {
+                    Intent i = new Intent(view.getContext(), DetailActivity.class);
+                    view.getContext().startActivity(i);
+                }else {
+                    Toast.makeText(view.getContext(), "tidak tersedia", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     @Override
@@ -85,12 +104,14 @@ public class MobilAdapter extends RecyclerView.Adapter<MobilAdapter.ViewHolder> 
 
         public ImageView imgThumbnail;
         public TextView tvspecies, tvspecies2;
+        CardView cv_mobil;
 
         public ViewHolder(View itemView) {
             super(itemView);
             imgThumbnail = itemView.findViewById(R.id.img_thumbnail);
             tvspecies = itemView.findViewById(R.id.status);
             tvspecies2 = itemView.findViewById(R.id.status2);
+            cv_mobil = itemView.findViewById(R.id.card_mobil);
         }
     }
 }
