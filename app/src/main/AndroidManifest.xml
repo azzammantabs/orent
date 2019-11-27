@@ -21,8 +21,10 @@
         </activity>
         <activity android:name=".activity.RegistActivity"/>
         <activity android:name=".activity.HomeActivity"/>
-        <activity android:name=".activity.MobilActivity"/>
-        <activity android:name=".activity.MotorActivity"/>
+        <activity android:name=".activity.MobilActivity"
+            android:parentActivityName=".activity.HomeActivity"/>
+        <activity android:name=".activity.MotorActivity"
+            android:parentActivityName=".activity.HomeActivity"/>
     </application>
 
 </manifest>

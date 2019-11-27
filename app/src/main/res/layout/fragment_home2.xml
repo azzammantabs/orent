@@ -12,42 +12,96 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="19dp"
+        android:paddingRight="19dp"
+        android:background="@android:color/white"
         android:orientation="vertical">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sewa motor"
+            android:text="Sewa Motor"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="34dp"
             android:textColor="@android:color/black"/>
-        <Button
-            android:id="@+id/btn_sewamotor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/motor"
-            android:shadowColor="@color/colorPrimary"
-            android:elevation="4dp"/>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="sewa mobil"
+            android:background="@android:color/white"
+            android:elevation="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/motor"
+                android:shadowColor="@color/colorPrimary"
+                android:elevation="4dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pilih motor "
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/tv_sewamotor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" klik disini"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sewa Mobil"
             android:layout_marginTop="39dp"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@android:color/black"/>
-        <Button
-            android:id="@+id/btn_sewamobil"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/mobil"
-            android:shadowColor="@color/colorPrimary"
-            android:elevation="4dp"/>
+            android:background="@android:color/white"
+            android:elevation="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/mobil"
+                android:shadowColor="@color/colorPrimary"
+                android:elevation="4dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" pilih mobil "
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/tv_sewamobil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" klik disini"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

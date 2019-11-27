@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.orent.R;
@@ -27,9 +28,9 @@ import com.example.orent.activity.MotorActivity;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener {
 
-    Button btn_motor, btn_mobil;
+    TextView tv_motor, tv_mobil;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -42,26 +43,28 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home2, container, false);
 
         //inisialisasi
-        btn_mobil = v.findViewById(R.id.btn_sewamobil);
-        btn_motor = v.findViewById(R.id.btn_sewamotor);
+        tv_mobil = v.findViewById(R.id.tv_sewamobil);
+        tv_motor = v.findViewById(R.id.tv_sewamotor);
 
-        //set on click listener
-        btn_mobil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), MobilActivity.class);
-                startActivity(i);
-            }
-        });
-        btn_motor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), MotorActivity.class);
-                startActivity(i);
-            }
-        });
+        tv_motor.setOnClickListener(this);
+        tv_mobil.setOnClickListener(this);
         return v;
     }
 
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_sewamobil :{
+                Intent in = new Intent(getActivity(), MobilActivity.class);
+                startActivity(in);
+            }break;
+            case R.id.tv_sewamotor :{
+                Intent in = new Intent(getActivity(), MotorActivity.class);
+                startActivity(in);
+            }break;
+            default:
+                //do nothing
+        }
+    }
 }

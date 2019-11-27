@@ -7,6 +7,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.widget.SearchView;
 
 import com.example.orent.R;
 import com.example.orent.adapter.MobilAdapter;
@@ -17,6 +19,8 @@ public class MotorActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
     RecyclerView.LayoutManager mLayoutManager;
     RecyclerView.Adapter mAdapter;
+    SearchView sv_motor;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +28,10 @@ public class MotorActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.tl_sewamotor);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //inisialisasi
+
         mRecyclerView = findViewById(R.id.rc_motor);
         mRecyclerView.setHasFixedSize(true);
 
@@ -35,11 +41,14 @@ public class MotorActivity extends AppCompatActivity {
         mAdapter = new MotorAdapter();
         //Memasang Adapter pada RecyclerView
         mRecyclerView.setAdapter(mAdapter);
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_toolbar,menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_toolbar, menu);
+
         return true;
     }
 }

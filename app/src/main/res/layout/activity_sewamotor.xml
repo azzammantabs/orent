@@ -18,8 +18,8 @@
             android:drawableLeft="@drawable/ic_search"
             android:hint="  Cari kendaraanmu disini"
             android:paddingLeft="10dp"
-            android:paddingRight="70dp"
-            android:textSize="12sp"
+            android:paddingRight="50dp"
+            android:textSize="10sp"
             android:focusable="false"/>
 
     </android.support.v7.widget.Toolbar>

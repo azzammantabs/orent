@@ -23,6 +23,7 @@ public class MobilActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.tl_sewamobil);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //inisialisasi
         mRecyclerView = findViewById(R.id.rc_mobil);
