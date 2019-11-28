@@ -21,6 +21,7 @@ public class RincianActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.tl_mobilpembayaran);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Rincian");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //inisialisasi

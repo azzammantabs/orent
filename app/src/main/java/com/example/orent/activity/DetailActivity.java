@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.orent.R;
@@ -15,6 +17,8 @@ import com.example.orent.R;
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btn_driver, btn_nodriver;
+    ImageView img_produk;
+    TextView tv_namadepan, tv_namabelakang;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,11 +26,16 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
         Toolbar toolbar = findViewById(R.id.tl_mobildetail);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Detail");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //inisialisasi
         btn_driver = findViewById(R.id.btn_withdriver);
         btn_nodriver = findViewById(R.id.btn_nodriver);
+        img_produk = findViewById(R.id.img_produk);
+        tv_namadepan = findViewById(R.id.tv_namadepan);
+        tv_namabelakang = findViewById(R.id.tv_namabelakang);
+
 
         //set on click
         btn_driver.setOnClickListener(this);

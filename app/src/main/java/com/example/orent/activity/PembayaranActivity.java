@@ -22,6 +22,7 @@ public class PembayaranActivity extends AppCompatActivity implements View.OnClic
 
         Toolbar toolbar = findViewById(R.id.tl_pembayaran);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Metode Pembayaran");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //inisialisasi

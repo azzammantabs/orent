@@ -21,6 +21,7 @@ public class TransferActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.tl_transfer);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Transfer");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //inisialisasi

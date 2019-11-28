@@ -21,6 +21,7 @@ public class PembayaranDetailActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.tl_pembayarandetail);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Detail Pembayaran");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //inisialisasi
