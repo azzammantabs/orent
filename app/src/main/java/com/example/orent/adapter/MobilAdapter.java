@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.orent.R;
 import com.example.orent.activity.DetailActivity;
+import com.example.orent.helper.PrefsHelper;
 import com.example.orent.model.Mobil;
 
 import java.util.ArrayList;
@@ -73,7 +74,7 @@ public class MobilAdapter extends RecyclerView.Adapter<MobilAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, int i) {
-        Mobil nature = mItems.get(i);
+        final Mobil nature = mItems.get(i);
         viewHolder.tvspecies.setText(nature.getName());
         viewHolder.tvspecies2.setText(nature.getmName2());
         viewHolder.imgThumbnail.setImageResource(nature.getThumbnail());
@@ -82,12 +83,12 @@ public class MobilAdapter extends RecyclerView.Adapter<MobilAdapter.ViewHolder> 
             final int i = viewHolder.getAdapterPosition();
             @Override
             public void onClick(View view) {
-                if (i == 0) {
-                    Intent i = new Intent(view.getContext(), DetailActivity.class);
-                    view.getContext().startActivity(i);
-                }else {
-                    Toast.makeText(view.getContext(), "tidak tersedia", Toast.LENGTH_SHORT).show();
-                }
+                Intent i = new Intent(view.getContext(), DetailActivity.class);
+                PrefsHelper.sharedInstance(view.getContext()).setNamaDepan(nature.getName());
+                PrefsHelper.sharedInstance(view.getContext()).setNamaBelakang(nature.getmName2());
+                PrefsHelper.sharedInstance(view.getContext()).setImage(nature.getThumbnail());
+                PrefsHelper.sharedInstance(view.getContext()).setStatusK(true);
+                view.getContext().startActivity(i);
             }
         });
 

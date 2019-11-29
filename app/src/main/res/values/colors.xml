@@ -7,4 +7,5 @@
     <color name="colorTextDefault">#070606</color>
     <color name="orent">#FF5C00</color>
     <color name="line">#848484</color>
+    <color name="btnlogout">#D70000</color>
 </resources>
