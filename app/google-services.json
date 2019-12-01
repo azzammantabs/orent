@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "60739785185",
+    "firebase_url": "https://orent-fb899.firebaseio.com",
+    "project_id": "orent-fb899",
+    "storage_bucket": "orent-fb899.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60739785185:android:09de3f60550088fbbd82a0",
+        "android_client_info": {
+          "package_name": "com.example.orent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "60739785185-99asrcd452dhkq3icqvavh6v8ac0umgn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.orent",
+            "certificate_hash": "eecc2e31fae84c74c5de45c04b5aab804a5679f5"
+          }
+        },
+        {
+          "client_id": "60739785185-8u9l5r3lo7rmu4dh3olmkerg1b0qmmmo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAisdvc-dU8F_s4cJ6aZ2UqW3tRfU-NRHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "60739785185-8u9l5r3lo7rmu4dh3olmkerg1b0qmmmo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,15 +2,16 @@ package com.example.orent.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.orent.R;
+import com.example.orent.helper.PrefsHelper;
 
 public class PembayaranActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,17 +39,24 @@ public class PembayaranActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_bni :{
-                Toast.makeText(this, "belum tersedia", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this, PembayaranDetailActivity.class);
+                PrefsHelper.sharedInstance(this).setNamaBank("Transfer Bank BNI");
+                PrefsHelper.sharedInstance(this).setRekBank("878-78-12345678");
+                PrefsHelper.sharedInstance(this).setLogoBank(R.drawable.bni);
+                startActivity(i);
             }break;
             case R.id.tv_mandiri :{
                 Intent i = new Intent(this, PembayaranDetailActivity.class);
+                PrefsHelper.sharedInstance(this).setNamaBank("Transfer Bank Mandiri");
+                PrefsHelper.sharedInstance(this).setRekBank("838-54-12345678");
+                PrefsHelper.sharedInstance(this).setLogoBank(R.drawable.mandiri);
                 startActivity(i);
             }
         }
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_toolbar,menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_toolbar,menu);
+//        return true;
+//    }
 }

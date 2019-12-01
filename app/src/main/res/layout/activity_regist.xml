@@ -8,7 +8,7 @@
     android:background="@android:color/white"
     android:orientation="vertical">
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp">
@@ -21,8 +21,8 @@
             android:inputType="textEmailAddress"
             android:textSize="14sp" />
 
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -34,8 +34,8 @@
             android:inputType="text"
             android:textSize="14sp" />
 
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -47,8 +47,8 @@
             android:inputType="number"
             android:textSize="14sp" />
 
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:passwordToggleEnabled="true">
@@ -61,12 +61,26 @@
             android:inputType="textPassword"
             android:textSize="14sp" />
 
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/btn_uploadimg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload Foto"
+        android:textColor="@color/orent"
+        android:background="@drawable/shape_buttonstroke"
+        android:layout_marginTop="10dp"/>
+    <ProgressBar
+        android:id="@+id/pb_regist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"/>
     <Button
         android:id="@+id/btn_daftar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="30dp"
         android:background="@color/colorPrimary"
         android:text="DAFTAR"
         android:textColor="@android:color/white" />

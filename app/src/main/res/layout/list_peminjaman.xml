@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cv_peminjaman"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:elevation="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/img_produkh"
+                    android:id="@+id/img_produkp"
                     android:layout_width="73.95dp"
                     android:layout_height="50dp"
                     android:src="@drawable/mobil" />
@@ -39,12 +39,12 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/tv_namadh"
+                            android:id="@+id/tv_namadp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Mitsubishi"
                             android:textColor="@android:color/black"
-                            android:textSize="22sp" />
+                            android:textSize="20sp" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -52,12 +52,12 @@
                             android:text=" " />
 
                         <TextView
-                            android:id="@+id/tv_namabh"
+                            android:id="@+id/tv_namabp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Xpander"
                             android:textColor="@android:color/black"
-                            android:textSize="22sp" />
+                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -66,7 +66,7 @@
                         android:layout_height="wrap_content"
                         android:text="Rp300.000/day"
                         android:textColor="@color/orent"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -106,6 +106,6 @@
             </RelativeLayout>
 
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

@@ -4,15 +4,15 @@
     android:layout_height="match_parent"
     android:background="@color/colorToolbar">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/tl_transfer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white">
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tl_transfer"
@@ -34,6 +34,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tv_tnama"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Transfer Bank Mandiri"
@@ -41,6 +42,7 @@
                     android:textSize="14sp" />
 
                 <ImageView
+                    android:id="@+id/img_tlogo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -93,6 +95,7 @@
                 android:textColor="@android:color/black"
                 android:layout_marginTop="15dp"/>
             <TextView
+                android:id="@+id/tv_norek"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="878-78-78787878"
@@ -101,7 +104,7 @@
                 android:layout_marginTop="15dp"/>
 
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:layout_width="match_parent"

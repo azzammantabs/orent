@@ -1,17 +1,16 @@
 package com.example.orent.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.SearchView;
 
 import com.example.orent.R;
-import com.example.orent.adapter.MobilAdapter;
 import com.example.orent.adapter.MotorAdapter;
 
 public class MotorActivity extends AppCompatActivity {
@@ -28,10 +27,11 @@ public class MotorActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.tl_sewamotor);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //inisialisasi
 
+        //inisialisasi
         mRecyclerView = findViewById(R.id.rc_motor);
         mRecyclerView.setHasFixedSize(true);
 
