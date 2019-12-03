@@ -51,11 +51,11 @@ public class PeminjamanFragment extends Fragment {
 
         //set item
         String nd = PrefsHelper.sharedInstance(getActivity()).getDpembayaran();
-        String nb = PrefsHelper.sharedInstance(getActivity()).getBpembayaran();
-        int img = PrefsHelper.sharedInstance(getActivity()).getIpembayaran();
 
-        if (nd != "tanpanama") {
+        if (nd!="tanpanama") {
             //inisialisasi
+            String nb = PrefsHelper.sharedInstance(getActivity()).getBpembayaran();
+            int img = PrefsHelper.sharedInstance(getActivity()).getIpembayaran();
             tv_nopinjam.setVisibility(View.GONE);
             mRecyclerView.setVisibility(View.VISIBLE);
             mRecyclerView.setHasFixedSize(true);

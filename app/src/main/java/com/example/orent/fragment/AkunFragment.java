@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.orent.R;
+import com.example.orent.activity.EditActivity;
 import com.example.orent.activity.LoginActivity;
 import com.example.orent.helper.PrefsHelper;
 import com.example.orent.model.User;
@@ -104,7 +105,8 @@ public class AkunFragment extends Fragment implements View.OnClickListener {
                 startActivity(i);
             }break;
             case R.id.tv_editprofil :{
-                Toast.makeText(getActivity(), "belum bisa", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getActivity(), EditActivity.class);
+                startActivity(i);
             }
         }
     }

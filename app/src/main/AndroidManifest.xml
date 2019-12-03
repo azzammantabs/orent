@@ -40,6 +40,8 @@
             android:parentActivityName=".activity.PembayaranActivity"/>
         <activity android:name=".activity.TransferActivity"
             android:parentActivityName=".activity.PembayaranDetailActivity"/>
+        <activity android:name=".activity.EditActivity"
+            android:parentActivityName=".activity.HomeActivity"/>
     </application>
 
 </manifest>

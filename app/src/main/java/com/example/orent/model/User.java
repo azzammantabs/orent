@@ -18,12 +18,6 @@ public class User {
         this.image = image;
     }
 
-    public User(String email, String nama, String no) {
-        this.nama = nama;
-        this.email = email;
-        this.no = no;
-    }
-
     public User(String email, String nama, String image, String no) {
         this.nama = nama;
         this.email = email;

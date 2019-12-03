@@ -71,6 +71,7 @@ public class TransferActivity extends AppCompatActivity {
                 PrefsHelper.sharedInstance(TransferActivity.this).setDpembayaran(nd);
                 PrefsHelper.sharedInstance(TransferActivity.this).setBpembayaran(nb);
                 PrefsHelper.sharedInstance(TransferActivity.this).setIpembayaran(img);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 finish();
             }

@@ -28,6 +28,8 @@ public class LoginActivity extends AppCompatActivity {
     ProgressBar pb_login;
     EditText et_username, et_password;
     FirebaseAuth mFirebaseAuth;
+    private long backpresstime;
+    private Toast backToast;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
@@ -71,7 +73,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(LoginActivity.this, RegistActivity.class);
                 startActivity(i);
-                finish();
             }
         });
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -119,4 +120,15 @@ public class LoginActivity extends AppCompatActivity {
         mFirebaseAuth.addAuthStateListener(mAuthStateListener);
     }
 
+    @Override
+    public void onBackPressed() {
+
+        if (backpresstime + 2000 > System.currentTimeMillis()) {
+            finish();
+        } else {
+            backToast = Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+        backpresstime = System.currentTimeMillis();
+    }
 }

@@ -1,16 +1,11 @@
 package com.example.orent.activity;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.Menu;
@@ -28,8 +23,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -37,37 +30,21 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 
+
 public class RegistActivity extends AppCompatActivity {
-    private String imageUrl;
+
+    public String image;
     TextView tv_login;
     ProgressBar pb_regist;
     Uri pickedImgUri;
     Button btn_daftar, btn_upload;
     EditText et_email, et_nama, et_no, et_pswd;
     private FirebaseAuth mAuth;
+    private StorageReference Folder;
     private DatabaseReference databaseReference;
 
-    int PReqCode = 1;
     int REQUESTCODE = 1;
 
-    private void checkAndRequestForPermission() {
-        if (ContextCompat.checkSelfPermission(RegistActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(RegistActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                Toast.makeText(RegistActivity.this, "Please accept for required permission", Toast.LENGTH_SHORT).show();
-            } else {
-                ActivityCompat.requestPermissions(RegistActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PReqCode);
-            }
-        } else {
-            openGallery();
-        }
-    }
-
-    private void openGallery() {
-        Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
-        galleryIntent.setType("image/*");
-        startActivityForResult(galleryIntent, REQUESTCODE);
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -83,21 +60,20 @@ public class RegistActivity extends AppCompatActivity {
         btn_daftar = findViewById(R.id.btn_daftar);
         btn_upload = findViewById(R.id.btn_uploadimg);
         pb_regist = findViewById(R.id.pb_regist);
+
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
+        Folder = FirebaseStorage.getInstance().getReference().child("user_photos");
 
 
         //on click listener
         btn_upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openGallery();
-                if (Build.VERSION.SDK_INT >= 22) {
-                    checkAndRequestForPermission();
-                } else {
-                    //openGallery()
-                }
+                Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                galleryIntent.setType("image/*");
+                startActivityForResult(galleryIntent, REQUESTCODE);
             }
         });
 
@@ -105,6 +81,7 @@ public class RegistActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(RegistActivity.this, LoginActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 finish();
             }
@@ -139,16 +116,15 @@ public class RegistActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                final String imgurl = getUrlImage();
                                 final User user = new User(
-                                        email, nama, imageUrl, no);
-
+                                        email, nama, imgurl, no);
                                 FirebaseDatabase.getInstance().getReference("User")
                                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            updateUserInfo(nama, pickedImgUri, mAuth.getCurrentUser());
                                             Toast.makeText(RegistActivity.this, "Registrasi Berhasil", Toast.LENGTH_SHORT).show();
                                             pb_regist.setVisibility(View.GONE);
                                             btn_daftar.setVisibility(View.VISIBLE);
@@ -173,54 +149,14 @@ public class RegistActivity extends AppCompatActivity {
                 }
             }
         });
-
-        // get string
-        String email = et_email.getText().toString();
-        String nama = et_nama.getText().toString();
-        String no = et_no.getText().toString();
-        String password = et_pswd.getText().toString();
-
     }
 
-    private void updateUserInfo(final String usernameValue, Uri pickedImgUri, final FirebaseUser currentUser) {
-        StorageReference mStorage = FirebaseStorage.getInstance().getReference().child("user_photos");
-        final StorageReference imageFilePath = mStorage.child(pickedImgUri.getLastPathSegment());
-        imageFilePath.putFile(pickedImgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(final UploadTask.TaskSnapshot taskSnapshot) {
-                //Upload image success
-                //now we can get out image uri
-                imageFilePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        UserProfileChangeRequest profileUpdate = new UserProfileChangeRequest.Builder()
-                                .setDisplayName(usernameValue)
-                                .setPhotoUri(uri)
-                                .build();
-                        currentUser.updateProfile(profileUpdate)
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-
-                                    }
-                                });
-                    }
-                });
-            }
-        });
+    private String getUrlImage() {
+        return image;
     }
 
-    //fungsi dipanggil ketika autentikasi berhasil
-    private void AuthSuccess(FirebaseUser user) {
-        writenewUser(user.getUid(), et_nama.getText().toString(), et_email.getText().toString());
-
-    }
-
-    //menulis ke database
-    private void writenewUser(String userId, String nama, String email) {
-        User user = new User(userId, nama, email);
-
-        databaseReference.child("user").child(userId).setValue(user);
+    private void setUrlImage(String image) {
+        this.image = image;
     }
 
     @Override
@@ -229,6 +165,20 @@ public class RegistActivity extends AppCompatActivity {
 
         if (resultCode == RESULT_OK && requestCode == REQUESTCODE && data != null) {
             pickedImgUri = data.getData();
+
+            final StorageReference imageName = Folder.child(pickedImgUri.getLastPathSegment());
+            imageName.putFile(pickedImgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    imageName.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            setUrlImage(String.valueOf(uri));
+                            Toast.makeText(RegistActivity.this, "Upload Foto Berhasil", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            });
         }
     }
 
